@@ -2,28 +2,42 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Navbar = () => {
-    return (
-        <nav className="p-5 bg-white flex justify-between">
-            <ul className="flex gap-4">
-                <li><Link href={'/'}>Home</Link></li>
-                <li><Link href={'/destinations'}>Destinations</Link></li>
-                <li><Link href={'/my-bookings'}>My Bookings</Link></li>
-            </ul>
-            <div>
-                <Image
-                src={'/assets/Wanderlast.png'}
-                width={150}
-                height={150}
-                alt="logo"
-                />
-            </div>
-            <ul className="flex gap-4">
-                <li><Link href={'/profile'}>Profile</Link></li>
-                <li><Link href={'/login'}>Login</Link></li>
-                <li><Link href={'/signup'}>Sign Up</Link></li>
-            </ul>
-        </nav>
-    );
+  return (
+    <nav className="p-5 bg-white flex justify-between">
+      <ul className="flex gap-4">
+        <li
+          className="relative inline-block after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full hover:text-blue-500 transition-colors duration-200"
+        >
+          <Link href={"/"}>Home</Link>
+        </li>
+        <li className="relative inline-block after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full hover:text-blue-500 transition-colors duration-200">
+          <Link href={"/destinations"}>Destinations</Link>
+        </li>
+        <li className="relative inline-block after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full hover:text-blue-500 transition-colors duration-200">
+          <Link href={"/my-bookings"}>My Bookings</Link>
+        </li>
+      </ul>
+      <div>
+        <Image
+          src={"/assets/Wanderlast.png"}
+          width={150}
+          height={150}
+          alt="logo"
+        />
+      </div>
+      <ul className="flex gap-4">
+        <li className="relative inline-block after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full hover:text-blue-500 transition-colors duration-200">
+          <Link href={"/profile"}>Profile</Link>
+        </li>
+        <li className="relative inline-block after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full hover:text-blue-500 transition-colors duration-200">
+          <Link href={"/login"}>Login</Link>
+        </li>
+        <li className="relative inline-block after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full hover:text-blue-500 transition-colors duration-200">
+          <Link href={"/signup"}>Sign Up</Link>
+        </li>
+      </ul>
+    </nav>
+  );
 };
 
 export default Navbar;

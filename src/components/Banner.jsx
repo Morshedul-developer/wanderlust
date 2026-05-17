@@ -18,7 +18,7 @@ const Banner = () => {
             Explore Now
           </button>
 
-          <button className="uppercase px-5 py-3 bg-white/50 cursor-pointer">
+          <button className="uppercase px-5 py-3 bg-white/50 cursor-pointer rounded-lg">
             View Destination
           </button>
         </div>
@@ -51,7 +51,7 @@ const Banner = () => {
           <p className="text-xs">5-10</p>
         </div>
 
-        <div className="bg-cyan-500 py-2 px-4">
+        <div className="bg-cyan-500 py-2 px-4 cursor-pointer">
           <h3>Search</h3>
         </div>
       </div>

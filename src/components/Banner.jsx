@@ -18,7 +18,7 @@ const Banner = () => {
             Explore Now
           </button>
 
-          <button className="uppercase px-5 py-3 bg-white/50 cursor-pointer rounded-lg">
+          <button className="uppercase px-5 py-3 bg-white/50 cursor-pointer rounded-md">
             View Destination
           </button>
         </div>

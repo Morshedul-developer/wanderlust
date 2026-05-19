@@ -14,11 +14,11 @@ const Banner = () => {
         </p>
 
         <div className="flex gap-5">
-          <button className="uppercase bg-cyan-500 px-5 py-3 cursor-pointer rounded-md">
+          <button className="uppercase bg-cyan-500 hover:bg-cyan-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-cyan-500/40 transition-all duration-300 cursor-pointer tracking-wide">
             Explore Now
           </button>
 
-          <button className="uppercase px-5 py-3 bg-white/50 cursor-pointer rounded-md">
+          <button className="uppercase bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-black font-semibold px-6 py-3 rounded-xl shadow-lg transition-all duration-300 cursor-pointer tracking-wide">
             View Destination
           </button>
         </div>

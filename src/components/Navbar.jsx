@@ -17,7 +17,7 @@ const Navbar = () => {
           <Link href={"/my-bookings"}>My Bookings</Link>
         </li>
       </ul>
-      <div>
+      <div className="cursor-pointer">
         <Image
           src={"/assets/Wanderlast.png"}
           width={150}

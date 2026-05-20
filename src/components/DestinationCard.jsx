@@ -1,10 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 import { BsCalendar2Date } from "react-icons/bs";
 import { FiArrowUpRight } from "react-icons/fi";
 import { MdOutlineLocationOn } from "react-icons/md";
 
 const DestinationCard = ({ destination }) => {
   const {
+    _id,
     destinationName,
     country,
     category,
@@ -41,9 +43,10 @@ const DestinationCard = ({ destination }) => {
           <BsCalendar2Date />
           <span>{duration}</span>
         </div>
+        <Link href={`/destinations/${_id}`}>
         <button className="flex items-center gap-2 text-[#15A1BF] hover:text-[#0d8ca8] cursor-pointer transition-all duration-300 hover:gap-3.5">
           BOOK NOW <FiArrowUpRight className="text-lg" />
-        </button>
+        </button></Link>
       </div>
     </div>
   );

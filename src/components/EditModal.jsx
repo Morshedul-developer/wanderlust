@@ -15,18 +15,18 @@ import {
 import { redirect } from "next/navigation";
 import { BiEdit } from "react-icons/bi";
 
-export function EditModal({data}) {
-    const {
-      _id,
-        destinationName,
-        country,
-        category,
-        price,
-        duration,
-        departureDate,
-        imageUrl,
-        description,
-      } = data;
+export function EditModal({ data }) {
+  const {
+    _id,
+    destinationName,
+    country,
+    category,
+    price,
+    duration,
+    departureDate,
+    imageUrl,
+    description,
+  } = data;
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -40,15 +40,15 @@ export function EditModal({data}) {
       body: JSON.stringify(destination),
     });
     const data = await res.json();
-    if(data.matchedCount > 0) {
-      redirect("/destinations")
+    if (data.matchedCount > 0) {
+      redirect("/destinations");
     }
   };
   return (
     <Modal>
-        <Button variant="outline" className={"rounded-none"}>
-          <BiEdit /> Edit
-        </Button>
+      <Button variant="outline" className={"rounded-none"}>
+        <BiEdit /> Edit
+      </Button>
       <Modal.Backdrop>
         <Modal.Container placement="auto">
           <Modal.Dialog className="sm:max-w-xl">
@@ -62,7 +62,11 @@ export function EditModal({data}) {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Destination Name */}
                     <div className="md:col-span-2">
-                      <TextField defaultValue={destinationName} name="destinationName" isRequired>
+                      <TextField
+                        defaultValue={destinationName}
+                        name="destinationName"
+                        isRequired
+                      >
                         <Label>Destination Name</Label>
                         <Input
                           placeholder="Bali Paradise"
@@ -73,8 +77,7 @@ export function EditModal({data}) {
                     </div>
 
                     {/* Country */}
-                    <TextField 
-                    defaultValue={country}name="country" isRequired>
+                    <TextField defaultValue={country} name="country" isRequired>
                       <Label>Country</Label>
                       <Input placeholder="Indonesia" className="rounded-2xl" />
                       <FieldError />
@@ -83,7 +86,7 @@ export function EditModal({data}) {
                     {/* Category - Updated Select Component */}
                     <div>
                       <Select
-                      defaultValue={category}
+                        defaultValue={category}
                         name="category"
                         isRequired
                         className="w-full"
@@ -126,8 +129,12 @@ export function EditModal({data}) {
                     </div>
 
                     {/* Price */}
-                    <TextField 
-                    defaultValue={price}name="price" type="number" isRequired>
+                    <TextField
+                      defaultValue={price}
+                      name="price"
+                      type="number"
+                      isRequired
+                    >
                       <Label>Price (USD)</Label>
                       <Input
                         type="number"
@@ -138,8 +145,11 @@ export function EditModal({data}) {
                     </TextField>
 
                     {/* Duration */}
-                    <TextField 
-                    defaultValue={duration}name="duration" isRequired>
+                    <TextField
+                      defaultValue={duration}
+                      name="duration"
+                      isRequired
+                    >
                       <Label>Duration</Label>
                       <Input
                         placeholder="7 Days / 6 Nights"
@@ -150,8 +160,12 @@ export function EditModal({data}) {
 
                     {/* Departure Date */}
                     <div className="md:col-span-2">
-                      <TextField 
-                      defaultValue={departureDate}name="departureDate" type="date" isRequired>
+                      <TextField
+                        defaultValue={departureDate}
+                        name="departureDate"
+                        type="date"
+                        isRequired
+                      >
                         <Label>Departure Date</Label>
                         <Input type="date" className="rounded-2xl" />
                         <FieldError />
@@ -160,8 +174,11 @@ export function EditModal({data}) {
 
                     {/* Image URL - Removed preview */}
                     <div className="md:col-span-2">
-                      <TextField 
-                      defaultValue={imageUrl}name="imageUrl" isRequired>
+                      <TextField
+                        defaultValue={imageUrl}
+                        name="imageUrl"
+                        isRequired
+                      >
                         <Label>Image URL</Label>
                         <Input
                           type="url"
@@ -174,8 +191,11 @@ export function EditModal({data}) {
 
                     {/* Description */}
                     <div className="md:col-span-2">
-                      <TextField 
-                      defaultValue={description}name="description" isRequired>
+                      <TextField
+                        defaultValue={description}
+                        name="description"
+                        isRequired
+                      >
                         <Label>Description</Label>
                         <TextArea
                           placeholder="Describe the travel experience..."
@@ -189,8 +209,10 @@ export function EditModal({data}) {
                   {/* Buttons */}
 
                   <Modal.Footer>
-              <Button type="submit" slot="close">Save</Button>
-            </Modal.Footer>
+                    <Button type="submit" slot="close">
+                      Save
+                    </Button>
+                  </Modal.Footer>
                 </form>
               </Surface>
             </Modal.Body>

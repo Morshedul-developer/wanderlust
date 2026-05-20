@@ -17,6 +17,7 @@ import { BiEdit } from "react-icons/bi";
 
 export function EditModal({data}) {
     const {
+      _id,
         destinationName,
         country,
         category,
@@ -31,14 +32,15 @@ export function EditModal({data}) {
     const formData = new FormData(e.currentTarget);
     const destination = Object.fromEntries(formData.entries());
 
-    const res = await fetch("http://localhost:5000/destination", {
-      method: "POST",
+    const res = await fetch(`http://localhost:5000/destination/${_id}`, {
+      method: "PATCH",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(destination),
     });
     const data = await res.json();
+    console.log(data);
   };
   return (
     <Modal>

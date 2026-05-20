@@ -16,6 +16,9 @@ const Navbar = () => {
         <li className="relative inline-block after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full hover:text-blue-500 transition-colors duration-200">
           <Link href={"/my-bookings"}>My Bookings</Link>
         </li>
+        <li className="relative inline-block after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full hover:text-blue-500 transition-colors duration-200">
+          <Link href={"/add-destination"}>Add Destination</Link>
+        </li>
       </ul>
       <div className="cursor-pointer">
         <Image

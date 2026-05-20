@@ -1,6 +1,5 @@
 "use client";
 
-import { Envelope } from "@gravity-ui/icons";
 import {
   Button,
   FieldError,
@@ -13,6 +12,7 @@ import {
   ListBox,
   TextArea,
 } from "@heroui/react";
+import { redirect } from "next/navigation";
 import { BiEdit } from "react-icons/bi";
 
 export function EditModal({data}) {
@@ -40,7 +40,9 @@ export function EditModal({data}) {
       body: JSON.stringify(destination),
     });
     const data = await res.json();
-    console.log(data);
+    if(data.matchedCount > 0) {
+      redirect("/destinations")
+    }
   };
   return (
     <Modal>

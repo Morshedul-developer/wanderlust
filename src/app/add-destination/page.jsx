@@ -11,6 +11,7 @@ import {
   TextArea,
   Button,
 } from "@heroui/react";
+import { redirect } from "next/navigation";
 
 const AddDestinationPage = () => {
   const onSubmit = async (e) => {
@@ -26,6 +27,9 @@ const AddDestinationPage = () => {
       body: JSON.stringify(destination),
     });
     const data = await res.json();
+    if(data.insertedId) {
+      redirect('/destinations');
+    }
   };
   return (
     <div className="max-w-3xl mx-auto space-y-4 p-5 my-5">

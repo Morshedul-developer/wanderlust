@@ -1,6 +1,7 @@
 "use client";
 
 import {AlertDialog, Button} from "@heroui/react";
+import { redirect } from "next/navigation";
 
 export function DeleteDestination({data}) {
     const {_id,destinationName} = data;
@@ -12,6 +13,10 @@ export function DeleteDestination({data}) {
           }
         });
         const data = await res.json();
+        
+        if(data.deletedCount>0){
+          redirect('/destinations');
+        }
     }
   return (
     <AlertDialog>

@@ -1,9 +1,8 @@
+import { DeleteDestination } from "@/components/DeleteDestination";
 import { EditModal } from "@/components/EditModal";
-import { Button, Separator } from "@heroui/react";
+import { Separator } from "@heroui/react";
 import Image from "next/image";
-import { BiEdit } from "react-icons/bi";
 import { BsCalendar2Date } from "react-icons/bs";
-import { FiArrowUpRight } from "react-icons/fi";
 import { MdOutlineLocationOn } from "react-icons/md";
 
 const DestinationDetailsPage = async({params}) => {
@@ -14,16 +13,17 @@ const DestinationDetailsPage = async({params}) => {
     const {
         destinationName,
         country,
-        category,
         price,
         duration,
-        departureDate,
         imageUrl,
         description,
       } = data;
       return (
         <div className="space-y-5 max-w-225 mt-4 mx-auto">
-            <EditModal data={data}/>
+            <div className="flex items-center justify-end gap-3">
+              <EditModal data={data}/>
+            <DeleteDestination data={data}/>
+            </div>
           <div>
             <Image
               alt={destinationName}

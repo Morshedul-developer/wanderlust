@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Card,
   FieldError,
@@ -11,11 +13,25 @@ import {
 } from "@heroui/react";
 
 const AddDestinationPage = () => {
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const destination = Object.fromEntries(formData.entries());
+
+    const res = await fetch("http://localhost:5000/destination", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(destination),
+    });
+    const data = await res.json();
+  };
   return (
     <div className="max-w-3xl mx-auto space-y-4 p-5 my-5">
       <h1 className="text-2xl font-bold">Add destination</h1>
       <Card>
-        <form className="p-10 space-y-8">
+        <form onSubmit={onSubmit} className="p-10 space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Destination Name */}
             <div className="md:col-span-2">

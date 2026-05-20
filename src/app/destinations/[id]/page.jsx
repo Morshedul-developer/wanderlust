@@ -1,3 +1,4 @@
+import { EditModal } from "@/components/EditModal";
 import { Button, Separator } from "@heroui/react";
 import Image from "next/image";
 import { BiEdit } from "react-icons/bi";
@@ -22,9 +23,7 @@ const DestinationDetailsPage = async({params}) => {
       } = data;
       return (
         <div className="space-y-5 max-w-225 mt-4 mx-auto">
-            <div className="flex justify-end">
-                <Button variant="outline" className={'rounded-none'}><BiEdit/> Edit</Button>
-            </div>
+            <EditModal data={data}/>
           <div>
             <Image
               alt={destinationName}

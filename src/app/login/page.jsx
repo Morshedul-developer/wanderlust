@@ -12,53 +12,34 @@ import {
   TextField,
 } from "@heroui/react";
 import { redirect } from "next/navigation";
-import { FcGoogle } from "react-icons/fc";
 
-const SignUpPage = () => {
+const LoginPage = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const user = Object.fromEntries(formData.entries());
 
-    const { data, error } = await authClient.signUp.email({
+    const { data, error } = await authClient.signIn.email({
       email: user.email,
       password: user.password,
-      name: user.name,
-      image: user.image,
     });
 
-    if (data) {
-      redirect("/");
+    if(data) {
+      redirect('/');
     }
-    if (error) {
-      alert("Invalid...!");
+    if(error) {
+      alert("Invalid username or password...!");
     }
-  };
-
-  const handleGoogleSignIn = async () => {
-    await authClient.signIn.social({
-      provider: "google",
-    });
   };
 
   return (
     <div className="max-w-105 mx-auto space-y-4 mt-5">
       <div className="text-center">
-        <h1 className="text-2xl font-semibold">Create Account</h1>
+        <h1 className="text-2xl font-semibold">Login</h1>
         <p className="text-zinc-500">Start your adventure with Wanderlust</p>
       </div>
       <Card className=" rounded-none border">
         <Form className="flex w-96 flex-col gap-4 mx-auto" onSubmit={onSubmit}>
-          <TextField isRequired name="name" type="text">
-            <Label>Full Name</Label>
-            <Input placeholder="Enter your name" />
-            <FieldError />
-          </TextField>
-          <TextField name="image" type="url">
-            <Label>Image URL</Label>
-            <Input placeholder="Enter image url" />
-            <FieldError />
-          </TextField>
           <TextField
             isRequired
             name="email"
@@ -108,22 +89,13 @@ const SignUpPage = () => {
               className={"bg-cyan-500 hover:bg-cyan-400 rounded-none w-full"}
               type="submit"
             >
-              Create Account
+              Login
             </Button>
           </div>
         </Form>
-        <div>
-          <Button
-            onClick={handleGoogleSignIn}
-            variant="outline"
-            className={"w-full rounded-none"}
-          >
-            <FcGoogle /> <span>Sign in with google</span>
-          </Button>
-        </div>
       </Card>
     </div>
   );
 };
 
-export default SignUpPage;
+export default LoginPage;

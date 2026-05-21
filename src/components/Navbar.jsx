@@ -1,13 +1,19 @@
+"use client";
+import { authClient } from "@/lib/auth-client";
+import { Avatar, Button } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
 
 const Navbar = () => {
+  const { data: session } = authClient.useSession();
+  const user = session?.user;
+  const handleLogout = async () => {
+    await authClient.signOut();
+  };
   return (
-    <nav className="p-5 bg-white flex justify-between">
-      <ul className="flex gap-4">
-        <li
-          className="relative inline-block after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full hover:text-blue-500 transition-colors duration-200"
-        >
+    <nav className="p-5 bg-white flex items-center justify-between">
+      <ul className="flex items-center gap-4">
+        <li className="relative inline-block after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full hover:text-blue-500 transition-colors duration-200">
           <Link href={"/"}>Home</Link>
         </li>
         <li className="relative inline-block after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full hover:text-blue-500 transition-colors duration-200">
@@ -28,16 +34,34 @@ const Navbar = () => {
           alt="logo"
         />
       </div>
-      <ul className="flex gap-4">
+      <ul className="flex items-center gap-4">
         <li className="relative inline-block after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full hover:text-blue-500 transition-colors duration-200">
           <Link href={"/profile"}>Profile</Link>
         </li>
-        <li className="relative inline-block after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full hover:text-blue-500 transition-colors duration-200">
-          <Link href={"/login"}>Login</Link>
-        </li>
-        <li className="relative inline-block after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full hover:text-blue-500 transition-colors duration-200">
-          <Link href={"/signup"}>Sign Up</Link>
-        </li>
+        {user ? (
+          <>
+            <Avatar className="cursor-pointer">
+              <Avatar.Image alt={user.name} src={user?.image} />
+              <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
+            </Avatar>
+            <Button
+              onClick={handleLogout}
+              variant="danger"
+              className={"rounded-none"}
+            >
+              Logout
+            </Button>
+          </>
+        ) : (
+          <>
+            <li className="relative inline-block after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full hover:text-blue-500 transition-colors duration-200">
+              <Link href={"/login"}>Login</Link>
+            </li>
+            <li className="relative inline-block after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full hover:text-blue-500 transition-colors duration-200">
+              <Link href={"/signup"}>Sign Up</Link>
+            </li>
+          </>
+        )}
       </ul>
     </nav>
   );

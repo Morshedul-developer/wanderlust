@@ -11,6 +11,7 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { FcGoogle } from "react-icons/fc";
 
@@ -121,6 +122,7 @@ const SignUpPage = () => {
             <FcGoogle /> <span>Sign in with google</span>
           </Button>
         </div>
+        <p className="text-center">Already have an account? <Link className="text-cyan-500 font-bold" href='/login'>Sign In</Link></p>
       </Card>
     </div>
   );

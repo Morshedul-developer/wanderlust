@@ -13,43 +13,35 @@ import {
 } from "@heroui/react";
 
 const SignUpPage = () => {
-  const onSubmit = async(e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const user = Object.fromEntries(formData.entries());
-    
-    const {data, error} = await authClient.signUp.email({
-        email: user.email,
-        password: user.password,
-        name: user.name,
-        image: user.image
+
+    const { data, error } = await authClient.signUp.email({
+      email: user.email,
+      password: user.password,
+      name: user.name,
+      image: user.image,
     });
 
-    console.log({data,error});
+    console.log({ data, error });
   };
 
   return (
     <div className="max-w-105 mx-auto space-y-4 mt-5">
-        <div className="text-center">
-            <h1 className="text-2xl font-semibold">Create Account</h1>
-            <p className="text-zinc-500">Start your adventure with Wanderlust</p>
-        </div>
+      <div className="text-center">
+        <h1 className="text-2xl font-semibold">Create Account</h1>
+        <p className="text-zinc-500">Start your adventure with Wanderlust</p>
+      </div>
       <Card className=" rounded-none border">
-        
         <Form className="flex w-96 flex-col gap-4 mx-auto" onSubmit={onSubmit}>
-          <TextField
-            isRequired
-            name="name"
-            type="text"
-          >
+          <TextField isRequired name="name" type="text">
             <Label>Full Name</Label>
             <Input placeholder="Enter your name" />
             <FieldError />
           </TextField>
-          <TextField
-            name="image"
-            type="url"
-          >
+          <TextField name="image" type="url">
             <Label>Image URL</Label>
             <Input placeholder="Enter image url" />
             <FieldError />
@@ -99,7 +91,10 @@ const SignUpPage = () => {
           </TextField>
 
           <div className="flex gap-2">
-            <Button className={'bg-cyan-500 hover:bg-cyan-400 rounded-none w-full'} type="submit">
+            <Button
+              className={"bg-cyan-500 hover:bg-cyan-400 rounded-none w-full"}
+              type="submit"
+            >
               Create Account
             </Button>
           </div>
@@ -107,6 +102,6 @@ const SignUpPage = () => {
       </Card>
     </div>
   );
-}
+};
 
 export default SignUpPage;

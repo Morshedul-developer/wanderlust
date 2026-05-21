@@ -101,13 +101,12 @@ const LoginPage = () => {
             </Button>
           </div>
         </Form>
+        <div className="flex justify-center items-center gap-3">
+          <Separator className="flex-1" />
+          <div className="text-zinc-500 whitespace-nowrap">Or sign up with</div>
+          <Separator className="flex-1"/>
+        </div>
         <div>
-          <Separator/>
-            <p className="text-zinc-500 whitespace-nowrap">Or sign up with</p>
-            <Separator/>
-          </div>
-        <div>
-          
           <Button
             onClick={handleGoogleSignIn}
             variant="outline"

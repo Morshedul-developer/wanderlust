@@ -11,6 +11,7 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
+import { redirect } from "next/navigation";
 
 const SignUpPage = () => {
   const onSubmit = async (e) => {
@@ -25,7 +26,9 @@ const SignUpPage = () => {
       image: user.image,
     });
 
-    console.log({ data, error });
+    if(data) {
+      redirect('/');
+    }
   };
 
   return (

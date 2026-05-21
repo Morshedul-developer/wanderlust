@@ -41,7 +41,7 @@ const Navbar = () => {
         {user ? (
           <>
             <Avatar className="cursor-pointer">
-              <Avatar.Image alt={user.name} src={user?.image} />
+              <Avatar.Image referrerPolicy="no-referrer" alt={user.name} src={user?.image} />
               <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
             </Avatar>
             <Button

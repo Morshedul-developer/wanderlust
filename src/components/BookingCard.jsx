@@ -10,15 +10,15 @@ const BookingCard = ({ data }) => {
   const { _id, destinationName, country, price, imageUrl } = data;
 
   const handleBooking = async () => {
-    if (!user) {
-      alert("Please log in to make a booking.");
-      return;
-    }
+    // if (!user) {
+    //   alert("Please log in to make a booking.");
+    //   return;
+    // }
 
     const bookingData = {
-      userId: user.id,
-      userImage: user.image,
-      userName: user.name,
+      userId: user?.id,
+      userImage: user?.image,
+      userName: user?.name,
       destinationId: _id,
       destinationName,
       price,
@@ -29,7 +29,6 @@ const BookingCard = ({ data }) => {
 
     const res = await fetch("http://localhost:5000/bookings", {
       method: "POST",
-      credentials: "include",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(bookingData),
     });

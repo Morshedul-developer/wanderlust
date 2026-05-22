@@ -29,7 +29,7 @@ const DestinationDetailsPage = async ({ params }) => {
         />
       </div>
       <Separator />
-      <div className="flex gap-20">
+      <div className="flex justify-between gap-20">
         <div className="space-y-4">
           <div className="flex items-center gap-1 font-semibold text-zinc-500">
             <MdOutlineLocationOn />

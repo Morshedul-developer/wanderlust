@@ -8,7 +8,13 @@ const BookingCard = ({ data }) => {
   const user = session?.user;
   const [departureDate, setDepartureDate] = useState(null);
   const { _id, destinationName, country, price, imageUrl } = data;
+
   const handleBooking = async () => {
+    if (!user) {
+      alert("Please log in to make a booking.");
+      return;
+    }
+
     const bookingData = {
       userId: user.id,
       userImage: user.image,
@@ -20,7 +26,17 @@ const BookingCard = ({ data }) => {
       country,
       departureDate: new Date(departureDate),
     };
+
+    const res = await fetch("http://localhost:5000/bookings", {
+      method: "POST",
+      credentials: "include",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(bookingData),
+    });
+    const result = await res.json();
+    console.log(result);
   };
+
   return (
     <Card className="rounded-none border">
       <p className="text-sm text-muted">Starting from</p>
@@ -37,9 +53,10 @@ const BookingCard = ({ data }) => {
       <Separator />
       <Button
         onClick={handleBooking}
+        isDisabled={!user}
         className={"w-full bg-cyan-500 hover:bg-cyan-400 rounded-none"}
       >
-        Book Now
+        {user ? "Book Now" : "Login to Book"}
       </Button>
     </Card>
   );

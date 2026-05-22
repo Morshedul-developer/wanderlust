@@ -11,7 +11,7 @@ const DestinationDetailsPage = async ({ params }) => {
   const res = await fetch(`http://localhost:5000/destinations/${id}`);
   const data = await res.json();
 
-  const { destinationName, country, price, duration, imageUrl, description } =
+  const { destinationName, country, duration, imageUrl, description } =
     data;
   return (
     <div className="space-y-5 max-w-225 mt-4 mx-auto">

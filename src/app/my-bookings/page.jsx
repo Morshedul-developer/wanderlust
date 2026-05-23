@@ -10,7 +10,6 @@ const MyBookingsPage = async () => {
   const user = session?.user;
   const res = await fetch(`http://localhost:5000/bookings/${user?.id}`);
   const bookings = await res.json();
-  console.log(bookings);
   return (
     <div className="max-w-300 mx-auto space-y-5">
       <div>
@@ -21,7 +20,10 @@ const MyBookingsPage = async () => {
       </div>
       <div className="space-y-5">
         {bookings.map((booking) => (
-          <div className="border p-5 flex gap-6 rounder-none relative" key={booking._id}>
+          <div
+            className="border p-5 flex gap-6 rounder-none relative"
+            key={booking._id}
+          >
             <Image
               src={booking.imageUrl}
               alt={booking.userName}
@@ -40,10 +42,10 @@ const MyBookingsPage = async () => {
                 })}
               </p>
               <p className="text-muted">Booking ID: {booking._id}</p>
-                <strong className="font-bold text-2xl text-cyan-500">
-                  ${booking.price}
-                </strong>
-                <DeleteBooking booking={booking}/>
+              <strong className="font-bold text-2xl text-cyan-500">
+                ${booking.price}
+              </strong>
+              <DeleteBooking booking={booking} />
             </div>
           </div>
         ))}

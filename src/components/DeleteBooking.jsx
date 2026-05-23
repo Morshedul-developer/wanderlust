@@ -5,15 +5,12 @@ import { redirect } from "next/navigation";
 
 export function DeleteBooking({ booking }) {
   const handleDeleteBooking = async () => {
-    const res = await fetch(
-      `http://localhost:5000/bookings/${booking._id}`,
-      {
-        method: "DELETE",
-        headers: {
-          "content-type": "application/json",
-        },
+    const res = await fetch(`http://localhost:5000/bookings/${booking._id}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
       },
-    );
+    });
     const data = await res.json();
     if (data.deletedCount > 0) {
       redirect("/my-bookings");

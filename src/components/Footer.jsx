@@ -38,7 +38,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Support */}
           <div>
             <h3 className="text-white mb-3 tracking-wide">SUPPORT</h3>
             <ul className="space-y-2">

@@ -11,8 +11,7 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Grid Section */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-11">
           <div>
             <h3 className="text-white mb-3 tracking-wide">NEWSLETTER</h3>
             <p className="mb-4 text-sm">

@@ -8,7 +8,11 @@ import { MdOutlineLocationOn } from "react-icons/md";
 
 const DestinationDetailsPage = async ({ params }) => {
   const { id } = await params;
-  const res = await fetch(`http://localhost:5000/destinations/${id}`);
+  const res = await fetch(`http://localhost:5000/destinations/${id}`,{
+    headers: {
+      authorization: "logged in",
+    }
+  });
   const data = await res.json();
 
   const { destinationName, country, duration, imageUrl, description } =

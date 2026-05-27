@@ -42,7 +42,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="max-w-105 mx-auto space-y-4 mt-5">
+    <div className="max-w-105 mx-auto space-y-4 my-10">
       <div className="text-center">
         <h1 className="text-2xl font-semibold">Login</h1>
         <p className="text-zinc-500">Start your adventure with Wanderlust</p>

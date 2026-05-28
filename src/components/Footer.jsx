@@ -13,7 +13,7 @@ const Footer = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-11">
           <div>
-            <h3 className="text-white mb-3 tracking-wide">NEWSLETTER</h3>
+            <h3 className="text-white mb-3 tracking-wide uppercase">Newsletter</h3>
             <p className="mb-4 text-sm">
               Subscribe for exclusive travel deals and inspiration.
             </p>

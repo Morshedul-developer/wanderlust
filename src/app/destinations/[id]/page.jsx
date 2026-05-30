@@ -10,7 +10,7 @@ const DestinationDetailsPage = async ({ params }) => {
   const { id } = await params;
   const res = await fetch(`http://localhost:5000/destinations/${id}`,{
     headers: {
-      authorization: "yes, logged in",
+      authorization: "logged in",
     }
   });
   const data = await res.json();

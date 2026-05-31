@@ -1,22 +1,27 @@
 import BookingCard from "@/components/BookingCard";
 import { DeleteDestination } from "@/components/DeleteDestination";
 import { EditModal } from "@/components/EditModal";
+import { auth } from "@/lib/auth";
 import { Separator } from "@heroui/react";
+import { headers } from "next/headers";
 import Image from "next/image";
 import { BsCalendar2Date } from "react-icons/bs";
 import { MdOutlineLocationOn } from "react-icons/md";
 
 const DestinationDetailsPage = async ({ params }) => {
   const { id } = await params;
-  const res = await fetch(`http://localhost:5000/destinations/${id}`,{
+  const { token } = await auth.api.getToken({
+    headers: await headers(),
+  });
+
+  const res = await fetch(`http://localhost:5000/destinations/${id}`, {
     headers: {
-      authorization: "yes, logged in",
-    }
+      authorization: `Bearer ${token}`,
+    },
   });
   const data = await res.json();
 
-  const { destinationName, country, duration, imageUrl, description } =
-    data;
+  const { destinationName, country, duration, imageUrl, description } = data;
   return (
     <div className="space-y-5 max-w-225 mt-4 mx-auto">
       <div className="flex items-center justify-end gap-3">
@@ -52,7 +57,7 @@ const DestinationDetailsPage = async ({ params }) => {
           </div>
         </div>
         <div>
-          <BookingCard data={data}/>
+          <BookingCard data={data} />
         </div>
       </div>
     </div>

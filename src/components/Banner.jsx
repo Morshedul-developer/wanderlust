@@ -18,7 +18,7 @@ const Banner = () => {
             Explore Now
           </button>
 
-          <button className="uppercase bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-black font-semibold px-6 py-3 rounded-xl shadow-lg transition-all duration-300 cursor-pointer tracking-wide">
+          <button className="uppercase bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white/85 hover:text-black font-semibold px-6 py-3 rounded-xl shadow-lg transition-all duration-300 cursor-pointer tracking-wide">
             View Destination
           </button>
         </div>

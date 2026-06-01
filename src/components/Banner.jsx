@@ -8,7 +8,7 @@ const Banner = () => {
           Discover Your <br /> Next Adventure
         </h1>
 
-        <p className="text-[18px]">
+        <p className="text-[18.5px]">
           Explore breathtaking destinations and create unforgettable memories
           with our curated travel experiences.
         </p>

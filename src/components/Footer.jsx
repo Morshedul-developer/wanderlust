@@ -48,7 +48,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-white mb-3 tracking-wide">SUPPORT</h3>
+            <h3 className="text-white mb-3 tracking-wide uppercase">Support</h3>
             <ul className="space-y-2">
               <li className="hover:text-white cursor-pointer">Help Center</li>
               <li className="hover:text-white cursor-pointer">

@@ -15,7 +15,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-11">
           <div>
             <h3 className="text-white mb-3.5 tracking-wide uppercase">Newsletter</h3>
-            <p className="mb-4 text-sm">
+            <p className="mb-4.5 text-sm">
               Subscribe for exclusive travel deals and inspiration.
             </p>
 
@@ -71,7 +71,7 @@ const Footer = () => {
 
         
         <div className="border-t border-gray-800 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm">© 2026 Wanderlust. All rights reserved.</p>
+          <p className="text-sm">© 2026 Wanderlast. All rights reserved.</p>
 
           <div className="flex gap-5 mt-4 md:mt-0 text-white text-lg">
             <span className="cursor-pointer">X</span>

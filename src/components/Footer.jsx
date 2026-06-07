@@ -23,7 +23,7 @@ const Footer = () => {
               <input
               name="email"
                 type="email"
-                placeholder="Enter email"
+                placeholder="Enter your email"
                 className="bg-transparent outline-none flex-1 text-sm"
               />
               <span className="text-white text-lg">↗</span>

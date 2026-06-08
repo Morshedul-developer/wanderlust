@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 export function DeleteDestination({data}) {
     const {_id,destinationName} = data;
     const handleDelete = async() => {
-        const res = await fetch(`http://localhost:5000/destinations/${_id}`,{
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/destinations/${_id}`,{
           method: "DELETE",
           headers: {
             'content-type': 'application/json'

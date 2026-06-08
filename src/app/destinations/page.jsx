@@ -5,7 +5,7 @@ const DestinationsPage = async() => {
     const destinations = await res.json();
 
     return (
-        <div className="max-w-7xl mx-auto space-y-4">
+        <div className="max-w-7xl mx-auto space-y-4 mt-10 mb-15">
             <h1 className="capitalize text-3xl font-bold">Explore all destinations</h1>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {

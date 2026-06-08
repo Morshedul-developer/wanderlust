@@ -11,7 +11,7 @@ const MyBookingsPage = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/bookings/${user?.id}`);
   const bookings = await res.json();
   return (
-    <div className="max-w-300 mx-auto space-y-5">
+    <div className="max-w-300 mx-auto space-y-5 my-10">
       <div>
         <h1 className="text-3xl font-bold">My Bookings</h1>
         <p className="text-muted mt-2">

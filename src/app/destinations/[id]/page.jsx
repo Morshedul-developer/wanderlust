@@ -23,7 +23,7 @@ const DestinationDetailsPage = async ({ params }) => {
 
   const { destinationName, country, duration, imageUrl, description } = data;
   return (
-    <div className="space-y-5 max-w-225 mt-4 mx-auto">
+    <div className="space-y-5 max-w-225 mt-5 mb-10 mx-auto">
       <div className="flex items-center justify-end gap-3">
         <EditModal data={data} />
         <DeleteDestination data={data} />

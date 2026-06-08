@@ -11,7 +11,7 @@ const Navbar = () => {
     await authClient.signOut();
   };
   return (
-    <div className="bg-white py-3">
+    <div className="bg-white py-3 shadow">
       <nav className="max-w-7xl mx-auto flex items-center justify-between">
         <ul className="flex items-center gap-4">
           <li className="relative inline-block after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-0.5 after:w-0 after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full hover:text-blue-500 transition-colors duration-200">

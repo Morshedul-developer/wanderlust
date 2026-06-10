@@ -5,8 +5,8 @@ const DestinationsPage = async() => {
     const destinations = await res.json();
 
     return (
-        <div className="max-w-7xl mx-auto space-y-5 mt-10 mb-15">
-            <h1 className="text-3xl font-bold">Explore All Destinations</h1>
+        <div className="max-w-7xl mx-auto space-y-7 mt-10 mb-15">
+            <h1 className="text-5xl font-bold">Explore All Destinations</h1>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {
                     destinations.map(destination => <DestinationCard key={destination._id} destination={destination}/>)

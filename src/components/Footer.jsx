@@ -30,7 +30,7 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <h3 className="text-white mb-3.5 tracking-wide uppercase">Quick links</h3>
+            <h3 className="text-white mb-3.5 tracking-wide">QUICK LINKS</h3>
             <ul className="space-y-2">
               <li className="hover:text-white cursor-pointer">
                 <Link href={"/"}>Home</Link>

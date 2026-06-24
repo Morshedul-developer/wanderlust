@@ -55,6 +55,7 @@ const MyProfile = () => {
               <Image
                 src={user.image}
                 alt={user.name}
+                referrerPolicy="no-referrer"
                 fill
                 className="object-cover"
               />

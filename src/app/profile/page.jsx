@@ -49,11 +49,14 @@ const MyProfile = () => {
         <div className="relative px-8 pb-10">
           {/* Avatar */}
           <div className="relative -mt-16">
-            <Avatar
-              src={user.image}
-              alt={user.name}
-              className="h-32 w-32 border-4 border-white shadow-[0_15px_35px_rgba(0,0,0,0.15)]"
-            />
+            <Avatar className="cursor-pointer h-32 w-32 border-4 border-white shadow-[0_15px_35px_rgba(0,0,0,0.15)]">
+              <Avatar.Image
+                referrerPolicy="no-referrer"
+                alt={user.name}
+                src={user.image}
+              />
+              <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
+            </Avatar>
           </div>
 
           {/* User Info */}

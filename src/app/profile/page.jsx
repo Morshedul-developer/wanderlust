@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { Avatar, Button } from "@heroui/react";
 import { authClient } from "@/lib/auth-client";
@@ -25,15 +24,15 @@ const MyProfile = () => {
             Please login to access your profile information.
           </p>
 
-          <Button
-            as={Link}
-            href="/login"
-            size="lg"
-            radius="lg"
-            className="mt-8 w-full bg-black text-white"
-          >
-            Login Now
-          </Button>
+          <Link>
+            <Button
+              size="lg"
+              radius="lg"
+              className="mt-8 w-full bg-black text-white"
+            >
+              Login Now
+            </Button>
+          </Link>
         </div>
       </div>
     );

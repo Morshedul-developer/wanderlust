@@ -50,8 +50,8 @@ const MyProfile = () => {
           {/* Avatar */}
           <div className="relative -mt-16">
             <Avatar
-              src={user?.image}
-              name={user?.name}
+              src={user.image}
+              alt={user.name}
               className="h-32 w-32 border-4 border-white shadow-[0_15px_35px_rgba(0,0,0,0.15)]"
             />
           </div>

@@ -1,80 +1,123 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@heroui/react";
+import { authClient } from "@/lib/auth-client";
 
-const ProfilePage = () => {
-  const user = {
-    name: "Morshedul Khaer",
-    email: "morshedul@example.com",
-    image: "https://i.pravatar.cc/300",
-    role: "Traveler",
-  };
+const MyProfile = () => {
+  const session = authClient.useSession();
+  const user = session.data?.user;
 
-  return (
-    <div className="max-w-5xl mx-auto px-4 py-10">
-      <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
-        {/* Cover */}
-        <div className="h-48 bg-linear-to-r from-cyan-500 via-blue-500 to-indigo-600" />
-
-        {/* Profile */}
-        <div className="px-8 pb-8">
-          {/* <div className="-mt-16">
-            <Image
-              src={user.image}
-              alt={user.name}
-              width={120}
-              height={120}
-              className="rounded-full border-4 border-white object-cover"
-            />
-          </div> */}
-
-          <div className="mt-4">
-            <h1 className="text-3xl font-bold">{user.name}</h1>
-            <p className="text-zinc-500">{user.email}</p>
-
-            <span className="inline-block mt-3 px-3 py-1 rounded-full text-sm bg-cyan-100 text-cyan-700">
-              {user.role}
-            </span>
+  if (!user) {
+    return (
+      <div className="min-h-[70vh] flex items-center justify-center px-4">
+        <div className="w-full max-w-md rounded-3xl border border-zinc-200 bg-white p-10 text-center shadow-xl">
+          <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-zinc-100">
+            <span className="text-4xl">👤</span>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-            <div className="p-5 rounded-2xl border">
-              <h3 className="text-2xl font-bold">12</h3>
-              <p className="text-zinc-500">Total Bookings</p>
-            </div>
+          <h2 className="mt-6 text-3xl font-bold text-zinc-900">
+            You're Not Logged In
+          </h2>
 
-            <div className="p-5 rounded-2xl border">
-              <h3 className="text-2xl font-bold">8</h3>
-              <p className="text-zinc-500">Visited Places</p>
-            </div>
+          <p className="mt-3 text-zinc-500">
+            Please login to access your profile information.
+          </p>
 
-            <div className="p-5 rounded-2xl border">
-              <h3 className="text-2xl font-bold">4</h3>
-              <p className="text-zinc-500">Upcoming Trips</p>
+          <Button
+            as={Link}
+            href="/login"
+            size="lg"
+            radius="lg"
+            className="mt-8 w-full bg-black text-white"
+          >
+            Login Now
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <section className="max-w-5xl mx-auto px-4 py-12">
+      <div className="overflow-hidden rounded-[32px] border border-zinc-200 bg-white shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
+
+        {/* Cover */}
+        <div className="h-52 bg-linear-to-r from-amber-400 via-yellow-400 to-orange-400" />
+
+        {/* Profile Content */}
+        <div className="relative px-8 pb-10">
+
+          {/* Avatar */}
+          <div className="-mt-16">
+            <div className="relative h-32 w-32 overflow-hidden rounded-full border-4 border-white bg-white shadow-xl">
+              <Image
+                src={user.image}
+                alt={user.name}
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
 
           {/* User Info */}
-          <div className="mt-8 border rounded-2xl p-6">
-            <h2 className="text-xl font-semibold mb-4">
+          <div className="mt-6">
+            <h1 className="text-4xl font-bold text-zinc-900">
+              {user.name}
+            </h1>
+
+            <p className="mt-2 text-zinc-500">
+              {user.email}
+            </p>
+
+            <span className="mt-4 inline-flex rounded-full bg-amber-100 px-4 py-1.5 text-sm font-medium text-amber-700">
+              Customer Account
+            </span>
+          </div>
+
+          {/* Information Card */}
+          <div className="mt-10 rounded-3xl border border-zinc-200 p-8">
+            <h2 className="mb-6 text-2xl font-bold">
               Personal Information
             </h2>
 
-            <div className="space-y-3">
-              <p>
-                <span className="font-medium">Full Name:</span> {user.name}
-              </p>
-              <p>
-                <span className="font-medium">Email:</span> {user.email}
-              </p>
-              <p>
-                <span className="font-medium">Account Type:</span> Traveler
-              </p>
+            <div className="grid gap-6 md:grid-cols-2">
+              <div>
+                <p className="text-sm text-zinc-500">
+                  Full Name
+                </p>
+
+                <p className="mt-1 text-lg font-semibold">
+                  {user.name}
+                </p>
+              </div>
+
+              <div>
+                <p className="text-sm text-zinc-500">
+                  Email Address
+                </p>
+
+                <p className="mt-1 text-lg font-semibold">
+                  {user.email}
+                </p>
+              </div>
             </div>
+
+            {/* <Button
+              as={Link}
+              href="/update-profile"
+              size="lg"
+              radius="lg"
+              className="mt-8 bg-black text-white font-semibold transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_15px_35px_rgba(0,0,0,0.2)]"
+            >
+              Update Information
+            </Button> */}
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default ProfilePage;
+export default MyProfile;

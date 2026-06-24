@@ -48,17 +48,12 @@ const MyProfile = () => {
         {/* Profile Content */}
         <div className="relative px-8 pb-10">
           {/* Avatar */}
-          <div className="-mt-16">
-            <div className="relative h-32 w-32 overflow-hidden rounded-full border-4 border-white bg-white shadow-xl">
-              <Avatar>
-                <Avatar.Image
-                  src={user.image}
-                  alt={user.name}
-                  referrerPolicy="no-referrer"
-                />
-                <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
-              </Avatar>
-            </div>
+          <div className="relative -mt-16">
+            <Avatar
+              src={user?.image}
+              name={user?.name}
+              className="h-32 w-32 border-4 border-white shadow-[0_15px_35px_rgba(0,0,0,0.15)]"
+            />
           </div>
 
           {/* User Info */}

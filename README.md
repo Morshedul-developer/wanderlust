@@ -137,9 +137,3 @@ Deployed on **Vercel**. To deploy your own instance:
 **Morshedul Islam Nijhum**
 
 [![GitHub](https://img.shields.io/badge/GitHub-Morshedul--developer-181717?style=flat&logo=github)](https://github.com/Morshedul-developer)
-
----
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@heroui/react";
+import { Avatar, Button } from "@heroui/react";
 import { authClient } from "@/lib/auth-client";
 
 const MyProfile = () => {
@@ -42,35 +42,30 @@ const MyProfile = () => {
   return (
     <section className="max-w-5xl mx-auto px-4 py-12">
       <div className="overflow-hidden rounded-[32px] border border-zinc-200 bg-white shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
-
         {/* Cover */}
         <div className="h-52 bg-linear-to-r from-amber-400 via-yellow-400 to-orange-400" />
 
         {/* Profile Content */}
         <div className="relative px-8 pb-10">
-
           {/* Avatar */}
           <div className="-mt-16">
             <div className="relative h-32 w-32 overflow-hidden rounded-full border-4 border-white bg-white shadow-xl">
-              <Image
-                src={user.image}
-                alt={user.name}
-                referrerPolicy="no-referrer"
-                fill
-                className="object-cover"
-              />
+              <Avatar>
+                <Avatar.Image
+                  src={user.image}
+                  alt={user.name}
+                  referrerPolicy="no-referrer"
+                />
+                <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
+              </Avatar>
             </div>
           </div>
 
           {/* User Info */}
           <div className="mt-6">
-            <h1 className="text-4xl font-bold text-zinc-900">
-              {user.name}
-            </h1>
+            <h1 className="text-4xl font-bold text-zinc-900">{user.name}</h1>
 
-            <p className="mt-2 text-zinc-500">
-              {user.email}
-            </p>
+            <p className="mt-2 text-zinc-500">{user.email}</p>
 
             <span className="mt-4 inline-flex rounded-full bg-amber-100 px-4 py-1.5 text-sm font-medium text-amber-700">
               Customer Account
@@ -79,29 +74,19 @@ const MyProfile = () => {
 
           {/* Information Card */}
           <div className="mt-10 rounded-3xl border border-zinc-200 p-8">
-            <h2 className="mb-6 text-2xl font-bold">
-              Personal Information
-            </h2>
+            <h2 className="mb-6 text-2xl font-bold">Personal Information</h2>
 
             <div className="grid gap-6 md:grid-cols-2">
               <div>
-                <p className="text-sm text-zinc-500">
-                  Full Name
-                </p>
+                <p className="text-sm text-zinc-500">Full Name</p>
 
-                <p className="mt-1 text-lg font-semibold">
-                  {user.name}
-                </p>
+                <p className="mt-1 text-lg font-semibold">{user.name}</p>
               </div>
 
               <div>
-                <p className="text-sm text-zinc-500">
-                  Email Address
-                </p>
+                <p className="text-sm text-zinc-500">Email Address</p>
 
-                <p className="mt-1 text-lg font-semibold">
-                  {user.email}
-                </p>
+                <p className="mt-1 text-lg font-semibold">{user.email}</p>
               </div>
             </div>
 
